@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+    --primary-text-color: #ffffff;
+    --navbar-bg: #333940; /* Added from style.css */
+    --button-color: #7268d8;
+    --button-hover-color: #6159c4;
+    --main-font: 'Montserrat', sans-serif;
+}
+
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: #fff;
+}
+
+/* --- Guide Header Section --- */
+.guide-header-section {
+    position: relative;
+    padding-top: 0;
+}
+
+.guide-header-image-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.guide-header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.guide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* FIX: Matching Main Site Fixed Header Styles */
+.guide-page-header {
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--navbar-bg); /* Dark background */
+    color: var(--primary-text-color);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Set high z-index */
+    border-bottom: none; /* Removed border to match main site */
+}
+
+.guide-page-header .logo {
+    color: #fff;
+    font-size: 28px; /* Matched main site logo size */
+    font-weight: 800;
+    text-transform: uppercase; /* Matched main site logo style */
+    letter-spacing: 1px; /* Matched main site logo style */
+}
+
+.main-site-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+.main-site-link:hover {
+    color: var(--button-color);
+}
+/* END FIX */
+
+.guide-header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 4;
+    width: 90%;
+    padding-top: 50px; /* Adjusted padding to clear the fixed header area */
+}
+
+.guide-headline {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.guide-subhead {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* --- Category Tabs --- */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    background-color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 5px -5px rgba(0, 0, 0, 0.1);
+    margin-top: 0px; /* Added margin-top to clear the fixed header */
+}
+
+.category-tab {
+    text-decoration: none;
+    color: #666;
+    font-weight: 600;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-tab:hover {
+    color: #333;
+    background-color: #eee;
+}
+
+.category-tab.active {
+    background-color: var(--button-color);
+    color: #fff;
+}
+
+.category-tab.active:hover {
+    background-color: var(--button-hover-color);
+    color: #fff;
+}
+
+/* --- Car Category Content (Alternating Background applied here) --- */
+.car-category-content {
+    /* Set only vertical padding, remove horizontal padding and max-width 
+        so the background can span the full viewport width */
+    padding: 80px 0; 
+    margin: 0;
+    max-width: none; 
+    text-align: center;
+}
+
+/* Alternating background colors for full-width sections */
+.car-category-content:nth-of-type(odd) {
+    background-color: #fff; 
+}
+
+.car-category-content:nth-of-type(even) {
+    background-color: #f8f8f8; /* Light gray for alternating effect */
+}
+
+/* New Content Wrapper to re-center the inner elements */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px; /* Apply horizontal padding here */
+}
+
+.placeholder-content {
+    min-height: 400px;
+    padding: 40px 50px;
+    border-top: 1px solid #eee;
+    background-color: #f8f8f8;
+}
+
+.content-heading {
+    font-size: 36px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.content-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 70px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* --- Car Detail Cards --- */
+/* Card styling remains the same, but now within .content-wrapper */
+.car-detail-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 100px;
+    text-align: right; /* Default text alignment */
+}
+
+.car-detail-card.reverse {
+    flex-direction: row;
+}
+
+.car-detail-card:not(.reverse) {
+    flex-direction: row-reverse;
+}
+
+.car-image-container {
+    flex-basis: 50%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.car-text-content {
+    flex-basis: 50%;
+    max-width: 500px;
+    padding: 20px 0;
+}
+
+.car-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.car-info {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Text alignment for reverse cards */
+.car-detail-card.reverse .car-text-content {
+    text-align: left;
+}
+
+.car-detail-card.reverse .car-info {
+    text-align: left;
+    max-width: 450px;
+}
+
+/* Text alignment for non-reverse cards (already handled by default card style, but explicitly defined here for clarity) */
+.car-detail-card:not(.reverse) .car-text-content {
+    text-align: right;
+}
+
+.car-detail-card:not(.reverse) .car-info {
+    max-width: 450px;
+    margin-left: auto;
+}
+
+.car-detail-card:not(.reverse) .car-title {
+    text-align: right;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #000;
+    color: var(--primary-text-color);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 992px) {
+    .car-detail-card,
+    .car-detail-card.reverse,
+    .car-detail-card:not(.reverse) {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .car-image-container,
+    .car-text-content {
+        flex-basis: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .car-text-content {
+        padding: 30px 0 0 0;
+    }
+
+    .car-title,
+    .car-detail-card:not(.reverse) .car-title {
+        text-align: center;
+    }
+
+    .car-info,
+    .car-detail-card.reverse .car-info,
+    .car-detail-card:not(.reverse) .car-info {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .guide-page-header {
+        padding: 15px 20px;
+    }
+
+    .guide-headline {
+        font-size: 32px;
+    }
+
+    .guide-subhead {
+        font-size: 16px;
+    }
+
+    .category-tabs {
+        padding: 15px 10px;
+        flex-wrap: wrap;
+        margin-top: 50px; /* Adjusted margin for smaller screens */
+    }
+
+    .category-tab {
+        padding: 8px 15px;
+        margin: 5px;
+    }
+
+    /* Adjust vertical padding for the full-width section */
+    .car-category-content {
+        padding: 50px 0; 
+    }
+
+    /* Adjust horizontal padding for the inner wrapper */
+    .content-wrapper {
+        padding: 0 20px; 
+    }
+}

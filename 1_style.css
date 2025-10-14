@@ -1,0 +1,1016 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+    :root {
+        --primary-text-color: #ffffff;
+        --navbar-bg: #333940;
+        --button-color: #7268d8;
+        --button-hover-color: #6159c4;
+        --main-font: 'Montserrat', sans-serif;
+        --light-bg: #f8f8f8; 
+        --dark-section-bg: #333940; 
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--main-font);
+        background-color: #000;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--navbar-bg);
+        color: var(--primary-text-color);
+        /* MODIFIED: Adjusted padding for better consistency */
+        padding: 15px 40px; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 28px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        transition: transform 0.3s ease-in-out; 
+    }
+
+    .nav-links a {
+        color: var(--primary-text-color);
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 30px;
+        font-size: 16px;
+        padding: 5px 0;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--button-color);
+    }
+
+    /* HAMBURGER ICON STYLES (MODIFIED FONT SIZE) */
+    .hamburger-icon {
+        display: none; 
+        background: none;
+        border: none;
+        color: var(--primary-text-color);
+        /* INCREASED FONT SIZE FOR BETTER TAP TARGET */
+        font-size: 28px; 
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; 
+    }
+
+    .hero-section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        color: var(--primary-text-color);
+    }
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); 
+        z-index: 2;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 800px;
+        padding-top: 50px; 
+        padding-bottom: 20vh; 
+    }
+
+    .headline {
+        font-size: 56px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    .sub-headline {
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        line-height: 1.5;
+        padding: 0 20px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: var(--button-color);
+        color: var(--primary-text-color);
+        text-decoration: none;
+        padding: 15px 40px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .cta-button:hover {
+        background-color: var(--button-hover-color);
+        transform: translateY(-2px);
+    }
+
+    /* --- Vehicle Categories Section --- */
+    /* MODIFIED: Adjusted padding for consistency */
+    .categories-section {
+        padding: 80px 40px; 
+        background-color: var(--light-bg); 
+        text-align: center;
+    }
+
+    .section-headline {
+        font-size: 36px;
+        font-weight: 800;
+        color: #000;
+        margin-bottom: 10px;
+    }
+
+    .section-subtext {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 50px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+    }
+
+    .category-grid {
+        display: flex;
+        justify-content: center;
+        gap: 30px; 
+        flex-wrap: wrap; 
+        max-width: 900px; 
+        margin: 0 auto; 
+    }
+
+    .category-card {
+        width: 280px; 
+        height: 400px; 
+        margin: 0;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* REMOVED INCONSISTENT MARGINS: The manual margins below prevent proper center-alignment 
+        when wrapping or using auto-centering logic in media queries. 
+        The flexbox 'justify-content: center' on the grid handles alignment. */
+    /* .category-card:nth-child(4),
+    .category-card:nth-child(5) {
+        margin-top: 30px; 
+    }
+
+    .category-card:nth-child(4) {
+        width: 280px; 
+        margin-left: auto; 
+    }
+    .category-card:nth-child(5) {
+        width: 280px; 
+        margin-right: auto; 
+    } */
+
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-image {
+        width: 100%;
+        height: 75%; 
+        object-fit: cover;
+        display: block;
+        border-radius: 12px 12px 0 0; 
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+        padding: 15px 10px;
+        text-align: center;
+        background-color: #ffffff;
+        height: 25%; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* --- Reusable Styles --- */
+    /* REMOVED REDUNDANT/DUPLICATE STYLES */
+    
+    /* Section Background Fixes for Alternating Colors */
+    /* MODIFIED: Adjusted padding for consistency */
+    .parts-section {
+        background-color: #ffffff; 
+        padding: 80px 40px;
+        text-align: center;
+    }
+    /* MODIFIED: Adjusted padding for consistency */
+    .creativity-section {
+        background-color: var(--light-bg); 
+        padding: 80px 40px;
+        text-align: center;
+    }
+    /* MODIFIED: Adjusted padding for consistency */
+    .gallery-section {
+        background-color: #ffffff; 
+        padding: 50px 40px 100px;
+        text-align: center;
+    }
+    /* MODIFIED: Adjusted padding for consistency */
+    .learning-hub-section {
+        background-color: var(--light-bg); 
+        padding: 80px 40px;
+        text-align: center;
+    }
+
+
+    .component-subtext {
+        margin-bottom: 60px;
+    }
+
+    /* --- Car Parts & Components Section --- */
+    .parts-grid {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+        flex-wrap: wrap; /* ADDED: Allows wrapping on smaller screens */
+    }
+
+    .part-item {
+        text-align: center;
+        width: 220px; 
+        text-decoration: none; 
+        transition: transform 0.3s ease;
+    }
+
+    .part-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .part-icon {
+        width: 180px; 
+        height: 180px; 
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        background-color: var(--button-color); 
+        border: 5px solid var(--button-color); 
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        transition: transform 0.3s ease;
+    }
+
+    .part-item:hover .part-icon {
+        transform: none; 
+    }
+
+    .part-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+    }
+
+
+    /* --- Unleash Your Creativity Section --- */
+    .creativity-section .section-headline {
+        color: #000; 
+    }
+
+    .creativity-content {
+        display: flex;
+        justify-content: center;
+        align-items: stretch; 
+        gap: 0; 
+        max-width: 1100px;
+        margin: 60px auto 0;
+        text-align: left;
+        background-color: #ffffff; 
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .creativity-image-container {
+        flex: 1;
+        max-width: 50%; 
+        box-shadow: none; 
+    }
+
+    .creativity-image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: 0;
+    }
+
+    .creativity-text {
+        flex: 1;
+        max-width: 50%; 
+        background-color: var(--dark-section-bg); 
+        color: var(--primary-text-color);
+        padding: 40px;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .creativity-title {
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--primary-text-color); 
+        margin-bottom: 15px;
+    }
+
+    .creativity-description {
+        font-size: 18px;
+        color: #ccc; 
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .secondary-cta {
+        padding: 15px 40px; 
+    }
+
+
+    /* --- Customization Gallery Section --- */
+    .gallery-subtext {
+        margin-bottom: 60px;
+    }
+
+    .gallery-grid {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap; /* ADDED: Allows wrapping on smaller screens */
+    }
+
+    .gallery-card {
+        width: 250px;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* --- Line Fix --- */
+    .line-separator-fix {
+        border: none !important;
+        height: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        display: none !important; 
+    }
+
+
+    /* --- Media Queries for Responsiveness (FIXED INCONSISTENCIES) --- */
+    
+    /* Laptop & Larger Tablet: <= 1200px */
+    @media (max-width: 1200px) {
+        /* Categories Section: Revert centering for two-column layouts on medium screens */
+        .category-grid {
+            max-width: 600px; 
+            justify-content: center;
+            gap: 30px; /* ENSURE GAP CONSISTENCY */
+        }
+        .category-card {
+            width: 280px; 
+            height: 400px;
+            margin-top: 0; /* RESET DEFAULT MARGIN */
+        }
+
+        /* REMOVED INCONSISTENT MARGIN RESET BLOCK. The removed manual margins 
+            in the main CSS and the default 0 margin on .category-card are sufficient.
+            The flex-wrap and justify-content: center will handle it. */
+
+        /* Gallery Grid: Allows for 3 columns on larger tablets/smaller desktops */
+        .gallery-grid {
+            max-width: 900px; 
+        }
+        .gallery-card {
+            width: 280px; 
+            height: 400px;
+        }
+
+        /* Articles Grid: Forces three columns for larger tablets/smaller desktops */
+        .articles-grid {
+            max-width: 900px;
+            flex-wrap: wrap; 
+        }
+        .article-card {
+            width: 280px; /* Adjusted from 350px/45% for 3-column layout on 900px width */
+        }
+    }
+    
+    /* Tablet & Smaller Desktop: <= 992px */
+    @media (max-width: 992px) {
+        .header {
+            padding: 15px 30px; /* Consistent padding */
+        }
+
+        /* Hero Content Adjustment */
+        .headline {
+            font-size: 48px;
+        }
+        .sub-headline {
+            font-size: 18px;
+        }
+
+        /* Section Padding Adjustment */
+        .categories-section,
+        .parts-section,
+        .creativity-section,
+        .learning-hub-section,
+        .community-section {
+            padding: 60px 30px;
+        }
+        .gallery-section {
+            padding: 50px 30px 80px;
+        }
+
+        /* HAMBURGER MENU - TABLET STYLES */
+        .hamburger-icon {
+            display: block; 
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 100%; 
+            background-color: rgba(51, 57, 64, 0.95); 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
+            padding-top: 0; 
+            box-shadow: none;
+            z-index: 999;
+            transform: translateX(100%); 
+            overflow-y: auto; 
+        }
+
+        .nav-links.active {
+            transform: translateX(0); 
+        }
+
+        .nav-links li {
+            width: 100%;
+            text-align: center;
+            margin: 30px 0; 
+        }
+        .nav-links a {
+            display: block;
+            margin-left: 0;
+            padding: 15px 0;
+            font-size: 24px; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .nav-links li:last-child a {
+            border-bottom: none;
+        }
+        /* End HAMBURGER MENU - TABLET STYLES */
+        
+        /* Categories Section: Forces two columns */
+        .category-grid {
+            max-width: 600px;
+        }
+        
+        /* Parts Section: Allows items to wrap for better spacing */
+        .parts-grid {
+            flex-wrap: wrap;
+            max-width: 600px; /* Limiting max width to look better on tablet */
+        }
+        
+        /* Creativity Section: Stack content vertically */
+        .creativity-content {
+            flex-direction: column; 
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+        }
+        .creativity-image-container {
+            max-width: 100%;
+        }
+        .creativity-text {
+            max-width: 100%;
+            text-align: center; 
+            padding: 30px 20px 40px;
+            align-items: center; 
+            border-radius: 0 0 10px 10px; 
+        }
+        .secondary-cta {
+            margin: 0 auto;
+        }
+        
+        /* Gallery Section: Forces two columns */
+        .gallery-grid {
+            flex-wrap: wrap;
+            max-width: 600px; 
+        }
+        .gallery-card {
+            width: 45%; /* Use percentage for flexible two-column layout */
+            max-width: 280px; 
+            height: 350px;
+        }
+
+        /* Articles Grid: Forces two columns */
+        .articles-grid {
+            max-width: 600px; 
+            flex-wrap: wrap;
+        }
+        .article-card {
+            width: 45%; 
+            max-width: 280px;
+        }
+
+        /* Footer: Ensures columns wrap nicely */
+        .footer-content {
+            justify-content: space-around;
+        }
+        .footer-col {
+            flex-basis: 40%;
+        }
+    }
+
+    /* Mobile Phone: <= 768px */
+    @media (max-width: 768px) {
+        .header {
+            padding: 15px 20px;
+        }
+        
+        /* Section Padding Adjustment */
+        .categories-section,
+        .parts-section,
+        .creativity-section,
+        .learning-hub-section,
+        .community-section {
+            padding: 50px 20px;
+        }
+        .gallery-section {
+            padding: 40px 20px 60px;
+        }
+
+        .headline {
+            font-size: 38px;
+        }
+        .sub-headline {
+            font-size: 16px;
+        }
+        .cta-button {
+            padding: 12px 30px;
+            font-size: 16px;
+        }
+        .section-headline, .community-headline {
+            font-size: 30px;
+        }
+        .section-subtext, .community-subtext {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        /* Contact Form Fix */
+        .input-row {
+            flex-direction: column;
+            gap: 0;
+        }
+        .input-row input {
+            width: 100%;
+            margin-bottom: 30px; /* Restore bottom margin for stacked inputs */
+            margin-top: 0;
+        }
+        /* Adjust margin on the first input in the row for consistency */
+        .contact-form input:nth-child(1),
+        .contact-form textarea {
+            margin-top: 30px;
+        }
+
+        /* Category Grid: Forces single column for mobile */
+        .category-grid {
+            max-width: 300px; 
+        }
+        .category-card {
+            width: 100%; 
+            max-width: 300px; /* Use max-width for better control */
+        }
+        
+        /* Parts Grid: Forces two columns */
+        .part-item {
+            width: 45%;
+            max-width: 150px; 
+        }
+        .part-icon {
+            width: 120px; 
+            height: 120px; 
+        }
+
+        /* Gallery Card: Forces single column */
+        .gallery-grid {
+            max-width: 300px;
+        }
+        .gallery-card {
+            width: 100%;
+            max-width: 300px;
+            height: 400px;
+        }
+        
+        /* Articles Grid: Forces single column */
+        .articles-grid {
+            max-width: 300px;
+        }
+        .article-card {
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        /* Footer: Stack columns vertically */
+        .footer {
+            padding: 40px 20px 20px;
+        }
+        .footer-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 40px;
+        }
+        .footer-col {
+            flex-basis: 100%;
+            max-width: 300px;
+        }
+        .footer-col a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .footer-heading {
+            text-align: center;
+        }
+        .social-icons {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .copyright {
+            padding-top: 40px;
+        }
+    }
+
+    /* Smaller Mobile Phone: <= 600px */
+    @media (max-width: 600px) {
+        /* No changes needed, 768px handles the single column layout effectively. 
+           Removed redundant/overridden blocks. */
+    }
+
+    /* Smaller Mobile Phone: <= 480px */
+    @media (max-width: 480px) {
+        .headline {
+            font-size: 32px;
+        }
+        .section-headline, .community-headline {
+            font-size: 26px;
+        }
+        
+        /* Parts Grid: Forces two columns, but makes icons smaller to fit */
+        .parts-grid {
+            gap: 20px;
+        }
+        .part-item {
+            width: 45%; 
+            max-width: 130px; 
+        }
+        .part-icon {
+            width: 100px; 
+            height: 100px; 
+        }
+        .part-title {
+            font-size: 16px;
+        }
+    }
+
+    /* --- From the Learning Hub Section --- */
+
+    .learning-hub-section {
+        /* MODIFIED: Using consistent padding, section-specific padding removed */
+        padding: 80px 40px; 
+        text-align: center;
+    }
+
+    .hub-headline {
+        color: #000;
+    }
+
+    .hub-subtext {
+        margin-bottom: 70px;
+        color: #333;
+    }
+
+    .articles-grid {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap; /* ADDED: Allows wrapping on smaller screens */
+    }
+
+    .article-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: left;
+    }
+
+    .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .article-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .article-title-box {
+        padding: 20px 20px 40px;
+        height: 120px;
+        display: flex;
+        align-items: flex-start;
+        background-color: #ffffff;
+    }
+
+    .article-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+        line-height: 1.4;
+    }
+
+    /* --- Join The Community Section --- */
+
+    .community-section {
+        background-color: #333940; 
+        /* MODIFIED: Using consistent padding, section-specific padding removed */
+        padding: 80px 40px; 
+        text-align: center;
+        color: var(--primary-text-color);
+    }
+
+    .community-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .community-headline {
+        font-size: 36px;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .community-subtext {
+        font-size: 18px;
+        opacity: 0.8;
+        margin-bottom: 40px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 15px;
+        /* MODIFIED: Set consistent margin for all full-width inputs/textareas */
+        margin-bottom: 30px;
+        margin-top: 30px; 
+        border: none;
+        border-radius: 5px;
+        background-color: #40464f;
+        color: var(--primary-text-color);
+        font-family: var(--main-font);
+        font-size: 16px;
+        resize: none;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    /* Reset margin-top for the first element in the form, 
+        or any element following a section headline */
+    .community-content .contact-form > input:first-of-type,
+    .community-content .contact-form > textarea:first-of-type,
+    .input-row + textarea {
+        margin-top: 0; 
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: #bbb;
+        opacity: 0.7;
+    }
+
+    .input-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px; /* ADDED: To replace the bottom margin on the stacked inputs inside the row */
+    }
+
+    .input-row input {
+        width: 50%;
+        margin-bottom: 0; /* REMOVED: Inconsistency fix */
+        margin-top: 0; /* REMOVED: Inconsistency fix */
+    }
+
+    .send-message-btn {
+        width: auto;
+        display: block;
+        margin: 0 auto;
+        padding: 15px 50px;
+        font-size: 18px;
+        background-color: var(--button-color); 
+    }
+
+    /* --- Footer --- */
+
+    .footer {
+        background-color: #1a1a1a;
+        color: var(--primary-text-color);
+        /* MODIFIED: Consistent padding */
+        padding: 50px 40px 20px; 
+        font-size: 15px;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto 40px;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .footer-col {
+        flex-basis: 250px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .footer-tagline, .footer-text {
+        color: #aaa;
+        line-height: 1.5;
+    }
+
+    .footer-heading {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--primary-text-color);
+    }
+
+    .footer-col a {
+        display: block;
+        color: #aaa;
+        text-decoration: none;
+        margin-bottom: 8px;
+        transition: color 0.3s;
+    }
+
+    .footer-col a:hover {
+        color: var(--button-color);
+    }
+
+    .social-icons a {
+        display: inline-block;
+        font-size: 24px;
+        margin-right: 15px;
+    }
+
+    .copyright {
+        text-align: center;
+        color: #777;
+        padding-top: 20px;
+        border-top: none; 
+        font-size: 13px;
+    }
+
+    /* Update the button container in the form */
+    .form-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px; 
+        margin-top: 20px;
+    }
+
+    /* Style for the new Reset button */
+    .reset-btn {
+        padding: 15px 50px;
+        font-size: 18px;
+        background-color: transparent;
+        border: 2px solid #aaa; 
+        color: #aaa;
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added transform */
+        border-radius: 5px; /* Added border-radius for consistency */
+        cursor: pointer;
+    }
+
+    .reset-btn:hover {
+        background-color: #40464f;
+        border-color: #fff;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    /* Update the Send Message button to sit next to the Reset button */
+    .send-message-btn {
+        width: auto;
+        display: block;
+        margin: 0; 
+        border-radius: 5px; /* Added border-radius for consistency */
+    }
+
+    /* Ensure the button block maintains center alignment on the parent */
+    .community-content .contact-form {
+        text-align: center;
+    }
+
+    /* Mobile Button Adjustment for Form */
+    @media (max-width: 480px) {
+        .form-buttons {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .send-message-btn, .reset-btn {
+            width: 100%;
+            max-width: 300px;
+        }
+    }

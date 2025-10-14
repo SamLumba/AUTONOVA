@@ -1,0 +1,250 @@
+/*
+ * CSS for The Gallery Page
+ * File Name: 5_Gallery.css
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+:root {
+    /* Using the standard color palette */
+    --primary-color: #7268d8; 
+    --primary-hover-color: #6159c4; 
+    --secondary-color: #333;
+    --light-grey: #f8f8f8;
+    --dark-grey: #666;
+    --white: #ffffff;
+    --black: #000000;
+    --main-font: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: var(--white);
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+/* --- HEADER --- (Similar to 4_Custom, absolute and transparent) */
+.main-header {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 15px 50px; 
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent; 
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px; 
+    font-weight: 800; 
+}
+
+.main-site-link {
+    color: var(--white); 
+    text-decoration: none;
+    font-size: 16px; 
+    font-weight: 600; 
+    transition: color 0.3s;
+}
+
+.main-site-link:hover {
+    color: var(--primary-color);
+}
+
+/* --- HERO SECTION --- (Dark background to match image_9611a2.jpg) */
+.hero-section {
+    position: relative;
+    height: 500px; /* Specific height to frame the dark image */
+    overflow: hidden;
+    background-color: var(--black);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Use contain to keep the aspect ratio and dark frame */
+    display: block;
+    opacity: 0.8; /* Slight darkening to integrate with overlay */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Darker overlay to ensure text stands out */
+    background: rgba(0, 0, 0, 0.4); 
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 48px; 
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); 
+}
+
+.hero-overlay p {
+    font-size: 20px; 
+    font-weight: 400;
+}
+
+/* --- MAIN CONTENT --- */
+.content-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.showcase-section {
+    padding: 40px 0;
+}
+
+.section-headline {
+    font-size: 36px; 
+    font-weight: 800; 
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+    text-align: center; 
+}
+
+/* --- Gallery Grid (Shared Styles) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.gallery-card {
+    display: block; /* Make the whole card clickable */
+    text-decoration: none;
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    width: 100%;
+    /* Increased height for a portrait aspect ratio */
+    height: 400px; 
+    object-fit: cover;
+    display: block;
+}
+
+/* Style for the images in the middle Full Visual Index grid (3x3 section) */
+.index-card-image {
+    /* Increased height for a portrait aspect ratio */
+    height: 400px; 
+}
+
+.card-caption {
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.card-caption h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+
+/* --- Responsiveness --- */
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr; /* 2 columns for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px; 
+    }
+
+    .content-section {
+        padding: 0 20px;
+    }
+    
+    .section-headline {
+        font-size: 30px;
+    }
+    
+    /* Increased card image height for 2-column layout */
+    .card-image {
+        height: 350px;
+    }
+
+    /* Increased card image height for 2-column layout */
+    .index-card-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        height: 350px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 32px; 
+    }
+
+    .hero-overlay p {
+        font-size: 16px; 
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 column for phones */
+    }
+    
+    /* Increased card image height for phones */
+    .card-image,
+    .index-card-image {
+        height: 300px;
+    }
+}
