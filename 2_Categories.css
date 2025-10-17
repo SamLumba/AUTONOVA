@@ -294,7 +294,7 @@ footer p {
 
 /* --- Media Queries --- */
 
-/* Tablet & Smaller Desktop: <= 992px */
+/* Tablet & Smaller Desktop */
 @media (max-width: 992px) {
     .guide-page-header {
         padding: 15px 30px;
@@ -369,7 +369,7 @@ footer p {
     }
 }
 
-/* Mobile Phone: <= 768px */
+/* Mobile Phone */
 @media (max-width: 768px) {
     .guide-page-header {
         padding: 15px 20px;
@@ -433,7 +433,7 @@ footer p {
     }
 }
 
-/* Smaller Mobile Phone: <= 480px */
+/* Smaller Mobile Phone */
 @media (max-width: 480px) {
     .guide-headline {
         font-size: 32px;
