@@ -9,6 +9,7 @@
     --primary-color: #7268d8; 
     --primary-hover-color: #6159c4; 
     --secondary-color: #333;
+    --header-bg-dark: #333940; /* New variable for the dark header background in the image */
     --light-grey: #f8f8f8;
     --dark-grey: #666;
     --white: #ffffff;
@@ -31,15 +32,15 @@ body {
 
 /* --- HEADER --- */
 .main-header {
-    background-color: var(--black);
+    /* Style to match the dark bar in the screenshot */
+    background-color: var(--header-bg-dark); /* Dark background */
     color: var(--white);
-    padding: 15px 50px; 
+    padding: 18px 0; /* Changed padding-left/right to 0. The internal padding will be handled by the header-content max-width and margin auto */
     position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    background: transparent; 
 }
 
 .header-content {
@@ -48,17 +49,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* Added internal padding to ensure spacing on the sides, matching the screenshot's alignment */
+    padding: 0 40px; 
 }
 
 .logo {
-    font-size: 24px; 
+    font-size: 26px; 
     font-weight: 800; 
+    letter-spacing: 0.5px; 
 }
 
 .main-site-link {
     color: var(--white); 
     text-decoration: none;
-    font-size: 16px; 
+    font-size: 15px; 
     font-weight: 600; 
     transition: color 0.3s;
 }
@@ -88,7 +92,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+    /* Adjusted gradient to be lighter at the top since the dark header is now visible */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
     color: var(--white);
     display: flex;
     flex-direction: column;
@@ -113,7 +118,7 @@ body {
 
 /* --- SUB NAVIGATION --- */
 .sub-nav {
-    background-color: var(--light-grey); 
+    background-color: var(--white); /* Changed to white background */
     border-bottom: 1px solid #ddd;
     box-shadow: 0 4px 5px -5px rgba(0, 0, 0, 0.1); 
     padding: 0;
@@ -129,35 +134,35 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
-    border-top: 1px solid #ddd; 
+    border-top: none; /* Removed border-top */
 }
 
 .sub-nav li a {
     display: block;
-    padding: 15px 25px; 
+    padding: 15px 20px; /* Adjusted padding to be tighter */
     text-decoration: none;
     color: var(--dark-grey); 
     font-weight: 600;
     font-size: 16px; 
     border-radius: 0; 
-    transition: background-color 0.3s, color 0.3s;
+    transition: color 0.3s; /* Removed background-color transition */
 }
 
 .sub-nav li a:hover {
-    color: var(--secondary-color);
-    background-color: #eee;
+    color: var(--primary-color); /* Hover color from the screenshot */
+    background-color: transparent; /* Ensure no background on hover */
 }
 
 .sub-nav li a.active {
     background-color: transparent;
-    color: var(--black); 
-    border-bottom: 3px solid var(--primary-color); 
-    margin-bottom: -1px; 
+    color: var(--primary-color); /* Active link color */
+    /* REMOVED: border-bottom: 3px solid var(--primary-color); */
+    margin-bottom: 0; /* Adjusted margin to compensate for removed border */
 }
 
 .sub-nav li a.active:hover {
-    background-color: #eee; 
-    color: var(--black);
+    background-color: transparent; 
+    color: var(--primary-color);
 }
 
 /* --- MAIN CONTENT --- */
@@ -249,8 +254,8 @@ body {
 }
 
 /* This section requires FontAwesome or similar for real icons.
-   Since we don't have access to an icon library, we'll use empty spans 
-   and style them as placeholders based on the image's structure.
+    Since we don't have access to an icon library, we'll use empty spans 
+    and style them as placeholders based on the image's structure.
 */
 .diy-icon {
     display: inline-block;
@@ -327,11 +332,16 @@ body {
     .custom-grid {
         grid-template-columns: 1fr 1fr; /* 2 columns for Performance/Exterior/Interior */
     }
+    
+    /* Responsive adjustment for header content padding */
+    .header-content {
+        padding: 0 20px;
+    }
 }
 
 @media (max-width: 768px) {
     .main-header {
-        padding: 15px 20px; 
+        padding: 15px 0; 
     }
 
     .content-section {
