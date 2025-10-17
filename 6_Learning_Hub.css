@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 
+/* --- Variables --- */
 :root {
     /* Standard Color Palette */
     --primary-color: #7268d8; /* Blue/Purple for buttons */
@@ -13,7 +14,10 @@
     --main-font: 'Montserrat', sans-serif;
 }
 
-* {
+/* --- Global Reset and Base Styles --- */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -24,17 +28,19 @@ body {
     background-color: var(--white);
     color: var(--secondary-color);
     line-height: 1.6;
+    /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth; 
 }
 
-/* --- HEADER --- (UPDATED: Solid dark background and removed absolute positioning) */
+/* --- Header & Navigation --- */
 .main-header {
-    /* Setting a solid dark background color similar to the screenshot's header bar */
     background-color: #343a40; 
     color: var(--white);
     padding: 15px 50px; 
-    /* Removed absolute positioning to make it a solid bar above the content */
+    /* Makes the header stick to the top when scrolling */
+    position: sticky;
+    top: 0;
     width: 100%;
-    /* Keep z-index for safety, though no longer strictly needed at the top */
     z-index: 100;
 }
 
@@ -63,7 +69,7 @@ body {
     color: var(--primary-color);
 }
 
-/* --- HERO SECTION --- */
+/* --- Hero Section --- */
 .hero-section {
     position: relative;
     height: 400px;
@@ -107,15 +113,12 @@ body {
     margin-bottom: 20px;
 }
 
-/* NEW STYLES: Style for the graphic image in the hero section */
-/* Note: The HTML provided in the last turn was missing the .hero-graphic-image <img> tag, 
-    but keeping the CSS structure in case it is added back. */
 .hero-graphic-image {
     position: absolute;
     bottom: 20px; /* Positioned at the bottom */
     left: 50%;
     transform: translateX(-50%);
-    max-width: 400px; /* Adjust size as needed */
+    max-width: 400px; 
     height: auto;
     object-fit: contain;
     z-index: 2; /* Sits between the background and the text overlay */
@@ -123,7 +126,7 @@ body {
 }
 
 
-/* --- MAIN CONTENT --- */
+/* --- Main Content Layout --- */
 .content-section {
     max-width: 1200px;
     margin: 0 auto; 
@@ -148,7 +151,7 @@ body {
 
 /* --- Featured Article Card (Overlay Style) --- */
 .featured-card {
-    position: relative; /* Essential for positioning the background <img> */
+    position: relative; /* Context for absolute image positioning */
     display: flex;
     background-color: var(--white);
     border-radius: 12px;
@@ -165,7 +168,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* NEW STYLES: Style for the background <img> tag inside the featured card */
 .card-background-img {
     position: absolute;
     top: 0;
@@ -177,22 +179,20 @@ body {
 }
 
 .featured-content {
-    /* Fill the entire card */
     position: relative;
     width: 100%;
     height: 100%;
-    /* Dark overlay for text readability (using semi-transparent background color) */
     background-color: rgba(0, 0, 0, 0.65); 
     color: var(--white);
     padding: 50px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: 1; /* Sits on top of the background image */
+    z-index: 1; 
 }
 
 .featured-content .tag {
-    color: #f7a048; /* Orange color from screenshot */
+    color: #f7a048; 
     font-weight: 600;
     font-size: 0.9em;
     margin-bottom: 10px;
@@ -230,10 +230,10 @@ body {
     background-color: var(--primary-hover-color);
 }
 
-/* --- General Articles Grid --- */
+/* --- General Articles Grid (Secondary Featured) --- */
 .article-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
 }
 
@@ -281,7 +281,6 @@ body {
     flex-grow: 1; 
 }
 
-/* Reusing the button style for "Read More" links in the grid, but smaller */
 .read-more-link {
     display: inline-block;
     color: var(--white);
@@ -302,7 +301,7 @@ body {
 .community-signup-section {
     background-color: var(--deep-dark); 
     color: var(--white);
-    padding: 80px 0; /* No horizontal padding here allows full width */
+    padding: 80px 0; 
     text-align: center;
     margin-top: 60px;
     width: 100%; 
@@ -311,7 +310,7 @@ body {
 .community-content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 40px; /* Horizontal padding is applied here to the content, not the background */
+    padding: 0 40px; 
 }
 
 .community-headline {
@@ -355,6 +354,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    flex-shrink: 0; 
 }
 
 .subscribe-button:hover {
@@ -362,35 +362,43 @@ body {
 }
 
 
-/* --- FOOTER --- */
+/* --- Footer --- */
 .main-footer {
     background-color: var(--black);
     color: var(--white);
     text-align: center;
     padding: 20px 0;
-    margin-top: 0; 
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
 
-/* --- Responsiveness --- */
+
+/* Responsiveness & Media Queries */
+
+
+/* Tablet & Smaller Desktop Adjustments */
 @media (max-width: 1050px) {
     .featured-content h3 {
         font-size: 30px;
     }
     .featured-content p {
         font-size: 16px;
-        max-width: 100%;
+        max-width: 100%; 
     }
 }
 
+/* Medium Tablets & Two-Column Grid */
 @media (max-width: 992px) {
+    .main-header {
+        padding: 15px 20px; 
+    }
     .article-grid {
-        grid-template-columns: 1fr 1fr;
+        /* Changes to two columns */
+        grid-template-columns: 1fr 1fr; 
     }
     .content-section {
-        padding: 0 20px;
+        padding: 0 20px; 
     }
     .featured-card-overlay {
         height: 350px;
@@ -400,51 +408,113 @@ body {
     }
 }
 
+/* Small Tablets & Large Phones (Portrait) */
 @media (max-width: 768px) {
-    .main-header {
-        padding: 15px 20px; 
-    }
     .section-headline,
     .community-headline {
         font-size: 28px;
+    }
+    .hero-overlay h1 {
+        font-size: 38px; 
+    }
+    .hero-overlay p {
+        font-size: 18px;
     }
     .featured-content h3 {
         font-size: 24px;
         max-width: 100%;
     }
-    /* Updated responsive styles for the community section */
+    .featured-content p {
+        font-size: 16px; 
+    }
+    .featured-card-overlay {
+        height: 300px; 
+    }
     .community-signup-section {
-        padding: 60px 0; /* Removed horizontal padding */
+        padding: 60px 0; 
     }
     .community-content {
-        padding: 0 20px; /* Added horizontal padding to the content */
+        padding: 0 20px; 
     }
 }
 
+/* Mobile Devices (One-Column Grid) */
 @media (max-width: 576px) {
+    .main-header {
+        padding: 12px 15px; 
+    }
+    .content-section {
+        padding: 0 15px;
+    }
+    
+    /* Hero section size and text */
     .hero-section {
-        height: 300px;
+        height: 350px; 
     }
     .hero-overlay h1 {
         font-size: 32px; 
     }
+    .hero-overlay p {
+        font-size: 17px; 
+    }
+    .hero-graphic-image {
+        max-width: 300px; 
+    }
+    
     .article-grid {
-        grid-template-columns: 1fr;
+        /* Single column for mobile */
+        grid-template-columns: 1fr; 
     }
+    
+    /* Article Card (Grid) styling */
     .article-card .card-image {
-        height: 180px;
+        height: 140px; 
     }
+    .article-card .card-content {
+        padding: 15px; 
+    }
+    .article-card h4 {
+        font-size: 1em; 
+    }
+    .article-card p {
+        font-size: 0.85em; 
+        margin-bottom: 10px; 
+    }
+    
+    /* Main Featured Content (Overlay Card) for better mobile prominence */
     .featured-card-overlay {
-        height: 300px;
+        margin-bottom: 25px; 
+        /* Increased height for visual prominence on mobile */
+        height: 546px; 
+    }
+    .top-featured {
+        padding-top: 30px; 
     }
     .featured-content {
-        padding: 30px;
+        padding: 40px; 
     }
+    .featured-content .tag {
+        font-size: 1em; 
+        margin-bottom: 15px;
+    }
+    .featured-content h3 {
+        font-size: 26px; 
+        margin-bottom: 20px; 
+        max-width: none; 
+    }
+    .featured-content p {
+        font-size: 16px; 
+        max-width: none; 
+        margin-bottom: 25px; 
+    }
+    
+    /* Community Sign-up Section form stack */
     .signup-form {
-        flex-direction: column;
+        /* Stacks email input and button vertically */
+        flex-direction: column; 
         gap: 10px;
     }
-    .signup-form input,
+    .signup-form input[type="email"],
     .subscribe-button {
         width: 100%;
     }

@@ -1,15 +1,11 @@
-/*
- * CSS for Car Customization Ideas Page
- * File Name: 4_Custom.css
- */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 
+/* --- Color Palette & Font Variables --- */
 :root {
     --primary-color: #7268d8; 
     --primary-hover-color: #6159c4; 
     --secondary-color: #333;
-    --header-bg-dark: #333940; /* New variable for the dark header background in the image */
+    --header-bg-dark: #333940; 
     --light-grey: #f8f8f8;
     --dark-grey: #666;
     --white: #ffffff;
@@ -17,6 +13,7 @@
     --main-font: 'Montserrat', sans-serif;
 }
 
+/* --- Base Reset --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -30,15 +27,14 @@ body {
     line-height: 1.6;
 }
 
-/* --- HEADER --- */
+/* --- Global Header --- */
 .main-header {
-    /* Style to match the dark bar in the screenshot */
-    background-color: var(--header-bg-dark); /* Dark background */
+    background-color: var(--header-bg-dark);
     color: var(--white);
-    padding: 18px 0; /* Changed padding-left/right to 0. The internal padding will be handled by the header-content max-width and margin auto */
-    position: absolute; 
+    padding: 18px 0; 
+    /* Ensures the header stays visible when scrolling */
+    position: sticky; 
     top: 0;
-    left: 0;
     width: 100%;
     z-index: 100;
 }
@@ -49,7 +45,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Added internal padding to ensure spacing on the sides, matching the screenshot's alignment */
     padding: 0 40px; 
 }
 
@@ -71,7 +66,7 @@ body {
     color: var(--primary-color);
 }
 
-/* --- HERO SECTION --- */
+/* --- Hero Section --- */
 .hero-section {
     position: relative;
     height: 60vh; 
@@ -92,7 +87,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Adjusted gradient to be lighter at the top since the dark header is now visible */
+    /* Gradient overlay for text contrast */
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
     color: var(--white);
     display: flex;
@@ -116,15 +111,12 @@ body {
     font-weight: 400;
 }
 
-/* --- SUB NAVIGATION --- */
+/* --- Sub Navigation Bar --- */
 .sub-nav {
-    background-color: var(--white); /* Changed to white background */
+    background-color: var(--white); 
     border-bottom: 1px solid #ddd;
     box-shadow: 0 4px 5px -5px rgba(0, 0, 0, 0.1); 
     padding: 0;
-    position: sticky; 
-    top: 0;
-    z-index: 50;
 }
 
 .sub-nav ul {
@@ -134,38 +126,27 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
-    border-top: none; /* Removed border-top */
 }
 
 .sub-nav li a {
     display: block;
-    padding: 15px 20px; /* Adjusted padding to be tighter */
+    padding: 15px 20px; 
     text-decoration: none;
     color: var(--dark-grey); 
     font-weight: 600;
     font-size: 16px; 
-    border-radius: 0; 
-    transition: color 0.3s; /* Removed background-color transition */
+    transition: color 0.3s;
 }
 
 .sub-nav li a:hover {
-    color: var(--primary-color); /* Hover color from the screenshot */
-    background-color: transparent; /* Ensure no background on hover */
-}
-
-.sub-nav li a.active {
-    background-color: transparent;
-    color: var(--primary-color); /* Active link color */
-    /* REMOVED: border-bottom: 3px solid var(--primary-color); */
-    margin-bottom: 0; /* Adjusted margin to compensate for removed border */
+    color: var(--primary-color); 
 }
 
 .sub-nav li a.active:hover {
-    background-color: transparent; 
     color: var(--primary-color);
 }
 
-/* --- MAIN CONTENT --- */
+/* --- Main Content Layout --- */
 .content-section {
     max-width: 1200px;
     margin: 40px auto;
@@ -194,7 +175,7 @@ body {
     margin-right: auto;
 }
 
-/* --- Customization Grid (3-column layout) --- */
+/* --- 3-Column Customization Cards --- */
 .custom-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -235,53 +216,17 @@ body {
 }
 
 
-/* --- DIY Tips Specific Styling --- */
+/* --- DIY Tips Section (4-column) --- */
 
-/* The DIY grid is 4 columns wide on desktop */
 .diy-grid {
+    /* 4 columns on large screens */
+    display: grid; 
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* Reduced gap for a tighter fit in 4 columns */
+    gap: 20px; 
 }
 
-/* DIY cards are simpler and focus on the icon */
-.diy-card {
-    background-color: var(--white);
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    padding: 25px; /* Increased padding */
-    text-align: center; 
-}
-
-/* This section requires FontAwesome or similar for real icons.
-    Since we don't have access to an icon library, we'll use empty spans 
-    and style them as placeholders based on the image's structure.
-*/
-.diy-icon {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    /* Base style for icons to represent the visual in the image */
-    background-color: var(--light-grey); 
-    border: 1px solid #ccc;
-    position: relative;
-    /* Text/Icon color is a vibrant orange/yellow in the image. */
-    color: var(--primary-color); 
-    font-size: 24px;
-    line-height: 50px;
-    font-family: Arial, sans-serif; /* Placeholder font */
-}
-
-/* To simulate the visual: Using different placeholder text/color */
-.paint-icon::after { content: '🎨'; }
-.light-icon::after { content: '💡'; }
-.caliper-icon::after { content: '🛠️'; }
-.headlight-icon::after { content: '💡'; } 
-
-/* To visually distinguish the DIY grid section from the others */
 #diy {
+    /* Visually distinguishes the DIY section */
     background-color: var(--light-grey);
     border-radius: 12px;
     margin-top: 60px;
@@ -290,6 +235,34 @@ body {
 #diy .section-description {
     margin-bottom: 20px;
 }
+
+.diy-card {
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 25px; 
+    text-align: center; 
+}
+
+/* Icon placeholders (using emojis for visual demonstration) */
+.diy-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    background-color: var(--light-grey); 
+    border: 1px solid #ccc;
+    color: var(--primary-color); 
+    font-size: 24px;
+    line-height: 50px;
+}
+
+.paint-icon::after { content: '🎨'; }
+.light-icon::after { content: '💡'; }
+.caliper-icon::after { content: '🛠️'; }
+.headlight-icon::after { content: '💡'; } 
 
 .diy-card h3 {
     font-size: 1.1em;
@@ -301,7 +274,7 @@ body {
 }
 
 
-/* --- FOOTER --- */
+/* --- Footer --- */
 .main-footer {
     background-color: var(--black);
     color: var(--white);
@@ -313,11 +286,12 @@ body {
 }
 
 
-/* --- Responsiveness --- */
+/* --- Responsive Adjustments --- */
+
 @media (max-width: 1100px) {
-    /* For slightly smaller screens, keep 4 columns but allow wrapping */
+    /* Switch DIY grid to 2 columns on medium screens */
     .diy-grid {
-        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns before the main 992px breakpoint */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
@@ -329,11 +303,11 @@ body {
         flex-wrap: wrap;
     }
     
+    /* Customization grid switches to 2 columns for tablets */
     .custom-grid {
-        grid-template-columns: 1fr 1fr; /* 2 columns for Performance/Exterior/Interior */
+        grid-template-columns: 1fr 1fr; 
     }
     
-    /* Responsive adjustment for header content padding */
     .header-content {
         padding: 0 20px;
     }
@@ -365,8 +339,9 @@ body {
         height: 200px;
     }
     
+    /* DIY grid switches to 1 column for smaller tablets/phones */
     .diy-grid {
-        grid-template-columns: 1fr; /* 1 column for DIY on smaller tablets/phones */
+        grid-template-columns: 1fr; 
     }
     
     .diy-card {
@@ -389,6 +364,6 @@ body {
     }
     
     .custom-grid {
-        grid-template-columns: 1fr; /* 1 column for phones */
+        grid-template-columns: 1fr; 
     }
 }

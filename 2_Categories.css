@@ -141,12 +141,6 @@ body {
     background-color: #eee;
 }
 
-.category-tab.active {
-    background-color: transparent;
-    color: var(--button-color);
-    padding: 8px 23px;
-}
-
 .category-tab.active:hover {
     background-color: #f0f0f0;
     color: var(--button-hover-color);

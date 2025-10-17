@@ -1,10 +1,10 @@
 /*
  * CSS for Car Components Explained Page
- * File Name: 3_Parts.css
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 
+/* --- Color Palette & Font Variables --- */
 :root {
     --primary-color: #7268d8;
     --primary-hover-color: #6159c4;
@@ -16,6 +16,7 @@
     --main-font: 'Montserrat', sans-serif;
 }
 
+/* --- Base Reset --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,7 +30,7 @@ body {
     line-height: 1.6;
 }
 
-/* --- HEADER --- */
+/* --- Main Header --- */
 .main-header {
     background-color: #333940;
     color: var(--white);
@@ -67,7 +68,7 @@ body {
     color: var(--primary-color);
 }
 
-/* --- HERO SECTION --- */
+/* --- Hero Section (Banner) --- */
 .hero-section {
     position: relative;
     height: 400px;
@@ -109,12 +110,12 @@ body {
     font-weight: 400;
 }
 
-/* --- SUB NAVIGATION --- */
+/* --- Sub Navigation Bar --- */
 .sub-nav {
     background-color: var(--light-grey);
     border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 54px;
+    /* Fixed pixel value retained from original code for layout integrity */
+    top: 54px; 
     z-index: 50;
     box-shadow: 0 4px 5px -5px rgba(0, 0, 0, 0.1);
 }
@@ -144,17 +145,12 @@ body {
     background-color: #eee;
 }
 
-.sub-nav li a.active {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
 .sub-nav li a.active:hover {
     background-color: var(--primary-hover-color);
     color: var(--white);
 }
 
-/* --- MAIN CONTENT --- */
+/* --- Main Content Layout --- */
 .content-section {
     max-width: 1200px;
     margin: 40px auto;
@@ -168,13 +164,9 @@ body {
 .component-section {
     padding: 0;
     margin-bottom: 60px;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    border-top: none;
 }
 
-/* Layout for component sections */
+/* Flexbox layout for component articles (Text and Image side-by-side) */
 .engine-article {
     display: flex;
     gap: 40px;
@@ -187,6 +179,11 @@ body {
     background-color: var(--white);
     border-radius: 12px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Alternating color for the text content card on even sections */
+.component-section:nth-of-type(even) .text-column {
+    background-color: var(--light-grey);
 }
 
 .image-column {
@@ -203,7 +200,7 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Reverse layout */
+/* Reverses the order of the columns for alternating layout */
 .article-reversed {
     flex-direction: row-reverse;
 }
@@ -222,7 +219,7 @@ body {
     font-size: 18px;
 }
 
-/* --- Component Grid (Updated Shadows) --- */
+/* --- Component Grid & Cards --- */
 .component-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -239,13 +236,13 @@ body {
     border: 1px solid #ddd;
     border-radius: 10px;
     background-color: var(--white);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* noticeable shadow */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
     transition: all 0.3s ease;
 }
 
 .grid-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); /* stronger hover shadow */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); 
 }
 
 #suspension .component-grid-2 {
@@ -265,7 +262,7 @@ body {
     color: var(--dark-grey);
 }
 
-/* --- FOOTER --- */
+/* --- Footer --- */
 .main-footer {
     background-color: #1a1a1a;
     color: var(--white);
@@ -276,8 +273,9 @@ body {
     line-height: 1.5;
 }
 
-/* --- RESPONSIVE --- */
+/* --- Media Queries (Responsiveness) --- */
 @media (max-width: 992px) {
+    /* Stack text and image columns vertically on smaller screens */
     .engine-article {
         flex-direction: column;
         gap: 20px;
@@ -290,7 +288,8 @@ body {
     .text-column, .image-column {
         padding: 20px;
     }
-
+    
+    /* Ensure image is above text on mobile for better flow */
     .image-column {
         order: -1;
         padding: 0;
@@ -335,6 +334,7 @@ body {
         font-size: 16px;
     }
 
+    /* Collapse grid to a single column on small phones */
     .component-grid {
         grid-template-columns: 1fr;
     }
