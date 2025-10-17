@@ -438,7 +438,7 @@
         }
     }
     
-    /* Tablet & Smaller Desktop: <= 992px */
+    /* Tablet & Smaller Desktop */
     @media (max-width: 992px) {
         .header {
             padding: 15px 30px; 
@@ -563,7 +563,7 @@
         }
     }
 
-    /* Mobile Phone: <= 768px */
+    /* Mobile Phone */
     @media (max-width: 768px) {
         .header {
             padding: 15px 20px;
@@ -682,7 +682,7 @@
         }
     }
 
-    /* Smaller Mobile Phone: <= 480px */
+    /* Smaller Mobile Phone */
     @media (max-width: 480px) {
         .headline {
             font-size: 32px;
