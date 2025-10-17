@@ -1,8 +1,3 @@
-/*
- * CSS for The Learning Hub Page
- * File Name: 6_Learning_Hub.css
- */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
 
 :root {
@@ -31,15 +26,15 @@ body {
     line-height: 1.6;
 }
 
-/* --- HEADER --- */
+/* --- HEADER --- (UPDATED: Solid dark background and removed absolute positioning) */
 .main-header {
-    background: transparent; 
+    /* Setting a solid dark background color similar to the screenshot's header bar */
+    background-color: #343a40; 
     color: var(--white);
     padding: 15px 50px; 
-    position: absolute; 
-    top: 0;
-    left: 0;
+    /* Removed absolute positioning to make it a solid bar above the content */
     width: 100%;
+    /* Keep z-index for safety, though no longer strictly needed at the top */
     z-index: 100;
 }
 
@@ -114,7 +109,7 @@ body {
 
 /* NEW STYLES: Style for the graphic image in the hero section */
 /* Note: The HTML provided in the last turn was missing the .hero-graphic-image <img> tag, 
-   but keeping the CSS structure in case it is added back. */
+    but keeping the CSS structure in case it is added back. */
 .hero-graphic-image {
     position: absolute;
     bottom: 20px; /* Positioned at the bottom */
